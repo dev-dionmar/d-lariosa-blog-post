@@ -1,0 +1,24 @@
+<button mat-button (click)="onOpenDialog('create')">new post</button>
+
+<mat-grid-list cols="4" rowHeight="2:1">
+  @for (post of posts; track $index) {
+  <mat-grid-tile>
+    <mat-card appearance="outlined">
+      <mat-card-header>
+        <mat-card-title>{{ post.title }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        {{ post.content }}
+      </mat-card-content>
+      <mat-card-actions align="end">
+        <button mat-button (click)="onOpenDialog('delete', post)">
+          Delete
+        </button>
+        <button mat-button (click)="onOpenDialog('update', post)">
+          Update
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+  }
+</mat-grid-list>
